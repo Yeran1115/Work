@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="//cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+<body>
+
+    <input id="ipt1" type="text" value="hello">
+
+    <div class="box">
+      <ul>
+        <li>1</li>
+        <li>2</li>
+        <li class="active">3</li>
+        <li>4</li>
+      </ul>
+    </div>
+    <button id="btn">变色</button>
+    <div class="ct">
+      <div class="c1">1</div>
+      <div class="c2">--</div>
+      <div class="c1">1</div>
+      <div class="c2 active">--</div>
+      <div class="c1">1</div>
+
+    </div>
+    <script>
+      console.log($('#ipt1').val())  
+
+      $('.box>ul>li').each(function(index, node){
+        // var str = $(node).text()
+        // $(node).text(str + str)
+        // node.innerText = node.innerText + node.innerText
+
+        console.log(this)
+        var str = $(this).text()
+        $(this).text(str+str)
+        console.log(arguments)
+      })
+         var arr = $('.box>ul>li').map(function(){
+            return $(this).text()
+          })
+          console.log(arr)
+          
+          var obj1 = {a:1}
+          var obj2 = {b:2, c:3}
+          var obj3 = {b:3 , d:5}
+          var obj4 = {}
+
+
+          // $.extend(obj1,obj2)
+          // var obj5 = $.extend({}, obj1, obj2, obj3)
+
+          $.ajax({
+            url: '/hello/',
+            method: 'post',
+            dataType: 'json'
+            data: {
+              a: 1,
+              b: 2
+            }
+
+          }).done(function(ret){
+
+          }).error(function(){
+
+          })
+
+         
+          lazyRender()
+          var clock
+
+          $(window).on('scroll', function(){
+            
+            if(clock){
+              clearTimeout(clock)
+            }
+            clock = setTimeout(function(){
+              console.log('hello')
+              lazyRender()
+            },300)
+            lazyRender()
+          })
+
+          function lazyRender(){
+            $('.container ima').each(function(){
+              if( checkShow($(this)) && !isLoaded($(this)) ){
+                loadImg($(this))
+              }
+            })
+          }
+
+
+
+          function checkShow($img){
+            var scrollTop = $(window).scrollTop
+            var windowHeight = $(window).height
+            var offsetTop = $img.offset().top
+
+            if(offsetTop < scrollTop + windowHeight && offsetTop > scrollTop){
+              return true
+            }
+            return false
+          }
+          function isLoaded($img){
+            return $img.attr('data-src') === $img.attr('src')
+          }
+          function loadImg($img){
+            $img.attr('src', $img.attr('data-src'))
+          }
+
+
+
+    </script>
+</body>
+</html>

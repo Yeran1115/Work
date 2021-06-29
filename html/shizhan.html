@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>企业首页</title>
+    <style>
+        ul,ol{
+            list-style: none;
+            padding: 0;
+        }
+        .about > h1{
+            font-size: 40px;
+            text-align:center;
+            text-transform: uppercase;
+            margin-bottom: 0;
+            letter-spacing: 1px;
+        }
+        .about > .subtitle{
+            font-style: italic;
+            text-align: center;
+            font-size: 16px;
+            color:#777;
+        }
+        .timeline{
+            max-width: 1140px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 60px;
+        }
+        .timeline img{
+            width: 156px;
+            border: 7px solid #f1f1f1
+            border-radius: 50%;
+        }
+        .timeline > li{
+            text-align: center;
+            position: relative;
+            padding: 0 0 125px 0;
+        }
+        .timeline >li:last-child{
+            padding-bottom: 0;
+        }
+        .timeline >li > .summary{
+            position: absolute;
+            right: 50%;
+            margin-right: 85px;
+            text-align: right;
+            top: 0;
+            width: 30em;
+        }
+        .timeline > li:nth-child(even) >.summary{
+            left: 50%;
+            margin-left: 85px;
+            text-align: left;    
+        }
+        .timeline > li::after{
+            content: '';
+            display: block;
+            position: absolute;
+            left: 50%;
+            top: 0;
+            border-left: 2px solid #f1f1f1;
+            margin-left: 1px;
+            height: 100%;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+    <section class="about">
+        <h1>About</h1>
+        <p class="subtitle">Don't be picky about your food</p>
+        <ol class="timeline">
+            <li>
+                <img src="../image/img.jpg" alt="">
+                <div class="summary">
+                <time>2009-2011</time>
+                <h2>Our Humble Beginnings</h2>
+                 <p>What do you want to wear today? 
+                    Let me comb your hair. 
+                    Did you put some lotion on your face? 
+                    Hurry up.Honey!You'll be late. 
+                    Here's the elevator.Let's get in. 
+                    </p>
+                </div>
+            </li>
+            <li>
+                <img src="../image/img.jpg" alt="">
+                <div class="summary">
+                <time>2009-2011</time>
+                <h2>Our Humble Beginnings</h2>
+                 <p>What do you want to wear today? 
+                    Let me comb your hair. 
+                    Did you put some lotion on your face? 
+                    Hurry up.Honey!You'll be late. 
+                    Here's the elevator.Let's get in. 
+                    </p>
+                </div>
+            </li>
+            <li>
+                <img src="../image/img.jpg" alt="">
+                <div class="summary">
+                <time>2009-2011</time>
+                <h2>Our Humble Beginnings</h2>
+                 <p>What do you want to wear today? 
+                    Let me comb your hair. 
+                    Did you put some lotion on your face? 
+                    Hurry up.Honey!You'll be late. 
+                    Here's the elevator.Let's get in. 
+                    </p>
+                </div>
+            </li>
+            <li>
+                <img src="../image/img.jpg" alt="">
+                <div class="summary">
+                <time>2009-2011</time>
+                <h2>Our Humble Beginnings</h2>
+                 <p>What do you want to wear today? 
+                    Let me comb your hair. 
+                    Did you put some lotion on your face? 
+                    Hurry up.Honey!You'll be late. 
+                    Here's the elevator.Let's get in. 
+                    </p>
+                </div>
+            </li>
+            <li>
+                <img src="../image/img.jpg" alt="">
+
+            </li>
+        </ol>
+    </section>
+</body>
+</html>

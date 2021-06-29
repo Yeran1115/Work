@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="ct">
+    </ul>
+    <a href="#" id="load-more" class="btn">
+        加载更多
+    </a>
+    <script>
+     var btn = document.querySelector('#load-more') 
+     var ct = document.querySelector('#ct')
+     var pageIndex = 0
+
+     var isDateArrive = true
+     btn.addEventListener('click',function(){
+
+        if(!isDateArrive){
+            return;
+        }
+
+        var xhr = new XMLHttpRequest()
+        xhr.onreadystatechange = function(){
+           if(xhr.readyState === 4 ){
+            if(xhr.status === 200 || xhr.status == 304){
+            var results = JSON.parse(xhr.responseText)
+            console.log(results)
+            var fragment = document.createDocumentFragment()
+            for(var i = 0; i < results.length; i++){
+              var node = document.createElement('li')
+              node.innerText = results[i]
+              fragment.appendChild(node)
+            }
+            ct.appendChild(fragment)
+
+            pageIndex = pageIndex + 5
+        }else{
+               console.log('出错了')
+           }
+        }
+    }
+        xhr.open('get', '/loadMore?index='+pageIndex+'&length=5', true)
+        xhr.send()
+
+
+
+     })  
+    </script>
+</body>
+</html>

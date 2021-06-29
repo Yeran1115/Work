@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <script>
+
+    function random(a, b){
+        return a + Math.floor(Math.random())
+    }
+    var arr = []
+    for(var i=0; i<50;i++){
+        arr.push(random(0,10))
+    }
+    console.log(arr)
+
+
+    function randomStr(len) {
+        var dict='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+        var str= ''
+        for(var i = 0; i < len; i++){
+            str += dict[random(0,62)]
+        }
+    return str
+    
+    }
+
+    function randomIP(len){
+        var arr = []
+        for(var i = 0; i < 4; i++){
+            arr.push(random(0, 256))
+        }
+        return arr.join('.')
+    }
+
+    if(Math.random() > 0.5){
+        console.log('hahh')
+    } else{
+        console.log('heiehi')
+    }
+
+
+
+
+
+   </script> 
+</body>
+</html>

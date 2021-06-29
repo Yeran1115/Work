@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+   /* .wrap{
+       padding: 20px;
+       background: red;
+   } */
+</style>
+
+<script>
+    // function clickCancel(){
+    //     console.log('haha')
+    // }
+
+
+
+
+</script>
+<body>
+    <!-- <div class="wrap">
+        <button id="btn">点我</button>
+        <button id="cancel" onclick="clickCancel()">去掉</button>
+    </div>
+    <ul id="list">
+        <li>111</li>
+        <li>2222</li>
+        <li>3333</li>
+    </ul> -->
+     <button>click me</button>
+    <script>
+        // var cancel = document.querySelector('#cancel')
+        // cancel.onclick = function(){
+        //     console.log('heihei')
+        // }
+        // cancel.addEventListener('click', function(){
+        //     console.log('hello')
+        // })
+        // cancel.addEventListener('click', function(){
+        //     console.log('eeeelo')
+        // })
+        // cancel.removeEventListener('click',function(){
+        //     console.log('hello')
+        // })
+
+    var button = document.querySelector('button')
+    var box = document.querySelector('.box')
+
+    button.addEventListener('click', function(e){
+        console.log(this)
+        console.log(this.innerText)
+        console.log(e.target)
+    })
+    
+    box.addEventListener('click', function(e){
+        console.log(this)
+        console.log(this.innerText)
+        console.log(e.target)
+    })
+
+    </script>
+
+    
+    <!-- <button id="btn-add">添加元素</button> -->
+    
+</body>
+</html>

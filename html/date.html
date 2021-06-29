@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function getChIntv(dateStr){
+            var targetDate = new Date(dateStr)
+            var curDate = new Date()
+            var offset = Math.abs(targetDate - curDate)
+            var totalSeconds = Math.floor(offset/1000)
+           
+            var second =Math.floor(totalSeconds%60)
+            var totalMinutes = Math.floor((offset/1000/60))
+            var minutes = totalMinutes%60
+            var totalHours = Math.floor(totalMinutes/60)
+            var hours = totalHours%24
+            var totalDays = Math.floor(totalHours/24)
+
+            return totalDays + '天' + hours + '小时' + minutes + '分钟' + second +'秒'
+
+
+
+
+
+        }
+
+
+
+
+
+    </script>
+</body>
+</html>

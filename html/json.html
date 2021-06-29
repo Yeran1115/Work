@@ -1,0 +1,27 @@
+<script>
+
+var obj2 = {name: 'ruoyu', age: 30}
+
+var str ='{"name": "ruoyu", "age": 30}'
+var obj = JSON.parse(str)
+console.log(obj.name)
+console.log(JSON.stringify(obj))
+
+var str1 = 'hello hohoho ,loloooo'
+var dict = {}
+for(var i = 0; i< str1.length; i++){
+    if(dict[str1[i]]){
+       ++dict[str1[i]]
+    }else{
+     dict[str1[i]] = 1
+    }
+}
+var min
+for(key in dict){
+
+}
+console.log(dict)
+
+
+
+</script>

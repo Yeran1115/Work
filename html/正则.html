@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+    
+    // var str = "ruoyu444hello\nruoyu123\nruoyu789"
+     
+    // console.log(str.match(/ruoyu\d{3}/g))
+
+    // function isPhoneNumber(str){
+    //    return /^1\d{10}$/.test(str)
+    // }
+
+    // var str2 = "hallo jierengu, hbllo world, hcllo ruoyu"
+    // var reg = /h[a-z]llo/g
+    
+
+    // do{
+    //     result = reg.exec(str2)
+    //     console.log(result)
+
+    // }while(result)
+
+    // // str2 = str2.replace(reg, 'hello')
+
+    // str2 = str2.replace(reg, function(){
+    //   console.log(arguments)
+    //   return 'haha'
+    // })
+    // console.log(str2)
+
+    function trim(str){
+       return str.replace(/^\s+|\s+$/g, '')
+    }
+
+    function isEmail(str){
+        var reg = /\w+@.+/
+        return reg.test(str)
+    }
+
+    function isPhoneNumber(str){
+        var reg = /^1\d{10}&/
+        return reg.test(str)
+    }
+
+    function isValidUsername(str){
+        var reg = /^\w{6,20}$/
+        return reg.test(str)
+    }
+
+    function isValidPassword(str){
+        if(!/^\w{6,20}$/.test(str)) return false
+        if(/^\d{6,20}$/.test(str)) return false
+        if(/^[a-z]{6,20}$/.test(str)) return false
+        if(/^[A-Z]{6,20}$/.test(str)) return false
+        if(/^_{6,20}$/.test(str)) return false
+        
+        return true
+    }
+
+     var subj = "color: #121212; background-color: #AA00ef;"
+     var colorReg = /#[0-9a-fA-F]{6}|#[0-9a-fA-F]{3}(?=;)/g
+     console.log(subj.match(colorReg))
+
+
+
+
+    var str = '3的平方是9,6的平方是36'
+    str = str.replace(/\d+/g,function(num){
+        return parseInt(num) * parseInt(num)
+    })
+     console.log(str)
+        
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

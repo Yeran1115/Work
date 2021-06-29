@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <script>
+
+class Promise {
+    constructor(){
+        this.calllbacks =[]
+    }
+
+    then(onsuccess, onfail){
+      this.calllbacks.push({
+          resolve: onsuccess,
+          reject: onfail
+      })
+        return this
+    }
+    resolve(result){
+       this.complete('resolve', result)
+    }
+    reject(result){
+        this.complete('reject', result)
+    }
+    
+    complete(type, result){
+      var callbackObj = this.calllbacks.shift()
+      callbackObj[type](result)
+    }
+
+
+
+
+
+}
+
+
+// function Promise() {
+    
+// }
+
+// Promise.prototype.then = function({
+
+// })
+
+   var p = new Promise()
+
+   function fn() {
+       console.log('fn1')
+       setTimeout(function(){
+           p.resolve('data1')
+       },1000)
+       return p
+   }
+
+   function fn1(result) {
+       console.log("fn2", result)
+    setTimeout(function () {
+       // p.resolve('data2')
+        p.resolve('data2')
+    },2000)   
+   }
+   function fn2(result) {
+       console.log("fn2", result)  
+   }
+
+   fn().then(fn1),then(fn2)
+   </script> 
+</body>
+</html>

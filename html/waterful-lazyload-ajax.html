@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="../js/jquery-3.6.0.js"></script>
+<body>
+   <script>
+
+       var curPage = 1
+       var perPageCount = 10
+
+       getData(function(newList){
+          
+          $.each(newList, function(idx, news){
+            var node = getNode(news)
+            $node.find('img'),load(function(){
+                $('#pic-ct').append($node)
+                waterFallPlace($node)
+            })
+          })
+          // waterFallPlace(nodes)
+       })
+    //    $(window).scroll(function(){
+    //        if(isVisable($('#load'))){
+    //            getData(function(newsList){
+    //                nodes = getNodes(newsList)
+    //                waterFallPlace(nodes)
+    //            })
+    //        }
+    //    })
+
+       function getData(callback){
+           $.ajax({
+               url: 'http://platform.sina.com.cn/slide/album_tech',
+               dataType: 'jsonp',
+               jsonp: "jsoncallback",
+               data: {
+                   app_key: '1271687855',
+                   num: perPageCount,
+                   page:curPage
+               }
+           }).done(function(ret){
+               if(ret && ret.status && ret.status.code === "0"){
+                   callback(ret.data);
+                   curPage++
+               }else{
+                   cosole.log('get error data')
+               }
+           })
+       }
+
+       function getNode(item){
+           var tpl = ''
+        tpl += '<li class="item">';
+        tpl += '<a href="+ item.url">'+'" class="link"><img src="' + item.img_url +'" alt=""></a>';
+        tpl +='<p class="desp">'+item.short_intro+'</p>';
+        tpl += '</li>'
+      
+        return $(tpl)
+        }
+
+
+
+
+   </script> 
+</body>
+</html>
